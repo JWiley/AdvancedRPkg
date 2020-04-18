@@ -23,13 +23,13 @@ Simple method to plot a linear model using ggplot
 along with 95% confidence intervals.
 }
 \examples{
-ggplot(
+ggplot2::ggplot(
   lm(mpg ~ hp * qsec, data = mtcars),
-  aes(hp, mpg, linetype = factor(qsec)),
+  ggplot2::aes(hp, mpg, linetype = factor(qsec)),
   vars = list(
     hp = min(mtcars$hp):max(mtcars$hp),
     qsec = round(mean(mtcars$qsec) + c(-1, 1) * sd(mtcars$qsec)), 1)) +
-  geom_ribbon(aes(ymin = LL, ymax = UL), alpha = .2) +
-  geom_line() +
-  theme_bw()
+  ggplot2::geom_ribbon(ggplot2::aes(ymin = LL, ymax = UL), alpha = .2) +
+  ggplot2::geom_line() +
+  ggplot2::theme_bw()
 }

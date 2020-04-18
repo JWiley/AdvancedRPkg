@@ -1,3 +1,5 @@
+globalVariables(c("fit", "se.fit"))
+
 ##' Function to plot data and mean summary
 ##'
 ##' This is a simple function designed to facilitate plotting raw
@@ -15,6 +17,8 @@
 ##' @return Called for the side effect of creating a plot.
 ##' @author Wiley
 ##' @export
+##' @importFrom graphics plot points
+##' @importFrom stats formula
 ##' @keywords plot
 ##' @examples
 ##' # example usage of meanPlot
@@ -41,17 +45,18 @@ meanPlot <- function(formula, d) {
 ##' @param \ldots Additional arguments passed to \code{ggplot}
 ##' @return A ggplot class object.
 ##' @export
+##' @importFrom stats predict qnorm
 ##' @import ggplot2
 ##' @examples
-##' ggplot(
+##' ggplot2::ggplot(
 ##'   lm(mpg ~ hp * qsec, data = mtcars),
-##'   aes(hp, mpg, linetype = factor(qsec)),
+##'   ggplot2::aes(hp, mpg, linetype = factor(qsec)),
 ##'   vars = list(
 ##'     hp = min(mtcars$hp):max(mtcars$hp),
 ##'     qsec = round(mean(mtcars$qsec) + c(-1, 1) * sd(mtcars$qsec)), 1)) +
-##'   geom_ribbon(aes(ymin = LL, ymax = UL), alpha = .2) +
-##'   geom_line() +
-##'   theme_bw()
+##'   ggplot2::geom_ribbon(ggplot2::aes(ymin = LL, ymax = UL), alpha = .2) +
+##'   ggplot2::geom_line() +
+##'   ggplot2::theme_bw()
 ggplot.lm <- function(data, mapping, vars, ...) {
   newdat <- do.call(expand.grid, vars)
   yvar <- as.character(formula(data)[[2]])

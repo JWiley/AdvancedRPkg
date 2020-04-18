@@ -46,6 +46,7 @@ textplot <- setClass(
 ##' @describeIn textplot show method
 ##'
 ##' @param object The object to be shown
+##' @importFrom utils head
 setMethod(
   f = "show",
   signature = "textplot",

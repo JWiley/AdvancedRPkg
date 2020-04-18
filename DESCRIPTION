@@ -9,7 +9,7 @@ Authors@R: c(
   )
 Description: This package will demonstrate the basics of an R
   package including documentation and tests.
-Depends: R (>= 3.6.3)
+Depends: R (>= 3.6.0)
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
@@ -17,4 +17,5 @@ Suggests:
     testthat (>= 2.1.0)
 RoxygenNote: 7.0.2
 Imports: 
-    methods
+    methods,
+    ggplot2
