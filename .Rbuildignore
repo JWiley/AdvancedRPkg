@@ -1,3 +1,6 @@
 desktop.ini
 .Rhistory
 .RData
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
